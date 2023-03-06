@@ -1,5 +1,3 @@
-## DynamoDB Client Sample
-
 ### Download local dynamoDB
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
 
