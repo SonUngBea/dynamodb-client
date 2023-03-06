@@ -1,4 +1,4 @@
-package com.example.dynamodbclient.sample;
+package com.example.dynamodbclient.sample.rangekey;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -6,7 +6,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.DeleteTableRequest;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
-import com.example.dynamodbclient.entity.Member;
+import com.example.dynamodbclient.sample.rangekey.entity.Member;
 import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 
-@Component
+//@Component
 public class SimpleCRUDRunner {
 
     private final DynamoDBMapper dynamoDBMapper;
@@ -40,13 +40,18 @@ public class SimpleCRUDRunner {
         member.setId("3");
         member.setName("김철수");
         member.setBirthday(birthday);
+        System.out.println("################ PUT ITEM ################");
         this.put(member);
 
         System.out.println("Put Result : " + this.get("3", birthday));
+        System.out.println("################ PUT ITEM ################");
 
-//        Member deleteTarget = this.get("3");
-//        this.delete(deleteTarget);
-//        System.out.println("After Delete : " + this.get("3"));
+        System.out.println("################ DELETE ITEM ################");
+        Member deleteTarget = this.get("3", birthday);
+        System.out.println("Before Delete : " + deleteTarget);
+        this.delete(deleteTarget);
+        System.out.println("After Delete : " + this.get("3", birthday));
+        System.out.println("################ DELETE ITEM ################");
 
     }
 

@@ -1,12 +1,11 @@
-package com.example.dynamodbclient.sample;
+package com.example.dynamodbclient.sample.rangekey;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
 import com.amazonaws.services.dynamodbv2.model.Condition;
-import com.example.dynamodbclient.entity.Member;
+import com.example.dynamodbclient.sample.rangekey.entity.Member;
 import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +24,9 @@ public class RangeKeyQuerySample {
     @PostConstruct
     public void setup() {
         List<Member> membersBetweenBirthday = getMembersBetweenBirthday(LocalDateTime.parse("1900-01-01"), LocalDateTime.parse("2005-01-01"));
+        System.out.println("############## RANGE QUERY ITEMS #################");
         membersBetweenBirthday.forEach(System.out::println);
+        System.out.println("############## RANGE QUERY ITEMS #################");
     }
 
 

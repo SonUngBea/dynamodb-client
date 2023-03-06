@@ -1,9 +1,9 @@
-package com.example.dynamodbclient.entity;
+package com.example.dynamodbclient.sample.rangekey.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import org.joda.time.LocalDateTime;
 
-// With RangeKey
+// With SortKey
 @DynamoDBTable(tableName = "Member")
 public class Member {
     @DynamoDBHashKey(attributeName = "id")
